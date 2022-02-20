@@ -4,8 +4,6 @@ Rails.application.routes.draw do
     get '/users/:id' => 'users/sessions#show'
   end
 
-  get 'events/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  resources :events, only: [:index]
   root to: 'events#index'
 end
