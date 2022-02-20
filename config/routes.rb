@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     get '/users/:id' => 'users/sessions#show'
   end
 
-  resources :events, only: [:index]
+  resources :events, only: [:index, :new]
   root to: 'events#index'
 end
