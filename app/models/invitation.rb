@@ -1,4 +1,4 @@
 class Invitation < ApplicationRecord
-  belongs_to :attendee
-  belongs_to :attended_events
+  belongs_to :attendee, class_name: 'User'
+  belongs_to :attended_events, class_name: 'Event'
 end
