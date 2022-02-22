@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_022221) do
+ActiveRecord::Schema.define(version: 2022_02_22_220056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 2022_02_21_022221) do
 
   create_table "invitations", force: :cascade do |t|
     t.bigint "attendee_id", null: false
-    t.bigint "attended_events_id", null: false
+    t.bigint "attended_event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["attended_events_id"], name: "index_invitations_on_attended_events_id"
+    t.index ["attended_event_id"], name: "index_invitations_on_attended_event_id"
     t.index ["attendee_id"], name: "index_invitations_on_attendee_id"
   end
 
@@ -49,6 +49,6 @@ ActiveRecord::Schema.define(version: 2022_02_21_022221) do
   end
 
   add_foreign_key "events", "users", column: "creator_id"
-  add_foreign_key "invitations", "events", column: "attended_events_id"
+  add_foreign_key "invitations", "events", column: "attended_event_id"
   add_foreign_key "invitations", "users", column: "attendee_id"
 end
