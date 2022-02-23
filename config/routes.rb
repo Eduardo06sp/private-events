@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index, :new, :create, :show]
+  resources :invitations, only: :create
   root to: 'events#index'
 end
