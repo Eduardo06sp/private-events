@@ -10,6 +10,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%= button_to "Log out", destroy_user_session_path %><br />
+
   <body>
     <section id="flash-messages">
       <h2 class="hidden">Notices and Alerts</h2>
