@@ -4,6 +4,13 @@
     <li><%= @event.name %></li>
     <li><p>This is a dumm-e description!</p></li>
 
+    <% if @event.attendees.any? %>
+      <h2>Attendees</h2>
+      <% @event.attendees.each do |attendee| %>
+        <li><%= attendee.username %></li>
+      <% end %>
+    <% end %>
+
     <p>Click below to see if joining an event works!</p>
     <%= button_to 'Join Event', invitations_path, params: { event_id: @event.id } %>
 </ul>
