@@ -7,6 +7,26 @@
   </div>
 
   <div>
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date,
+        value: Date.parse(1.week.from_now.strftime('%a, %d %B %Y')) %>
+  </div>
+  <div>
+    <%= form.label :start_time %>
+    <%= form.time_field :start_time, value: '12:00' %>
+  </div>
+
+  <div>
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date,
+        value: Date.parse(1.week.from_now.strftime('%a, %d %B %Y')) %>
+  </div>
+  <div>
+    <%= form.label :end_time %>
+    <%= form.time_field :end_time, value: '23:00' %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
