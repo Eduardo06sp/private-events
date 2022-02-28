@@ -12,4 +12,4 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import "src/user_registration_new.js"
+import "../src/user_registration_new.js"
