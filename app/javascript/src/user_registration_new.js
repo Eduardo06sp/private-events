@@ -1,10 +1,10 @@
 const currentDate = Date.now();
-const timeAndZoneFormat = new Intl.DateTimeFormat('en-US', {
+const timeAndOffsetFormat = new Intl.DateTimeFormat('en-US', {
   hour: '2-digit',
   minute: '2-digit',
-  timeZoneName: 'long'
+  timeZoneName: 'longOffset'
 });
-const timeAndZone = timeAndZoneFormat.format(currentDate);
+const timeAndOffset = timeAndOffsetFormat.format(currentDate);
 
-const time = timeAndZone.slice(0, 8);
-const zone = timeAndZone.slice(9);
+const time = timeAndOffset.slice(0, 8);
+const zone = timeAndOffset.slice(9);
