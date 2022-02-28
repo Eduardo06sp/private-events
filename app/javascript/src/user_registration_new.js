@@ -23,7 +23,11 @@ const selectOffset = function() {
     return currentOffset === offset;
   });
 
-  timeZoneDropdown.value = matchingOffsetOption.value;
+  if (matchingOffsetOption === undefined) {
+    timeZoneDropdown.value = 'UTC';
+  } else {
+    timeZoneDropdown.value = matchingOffsetOption.value;
+  }
 };
 
 selectOffset();
