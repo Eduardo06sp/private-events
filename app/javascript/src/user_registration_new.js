@@ -7,4 +7,4 @@ const timeAndOffsetFormat = new Intl.DateTimeFormat('en-US', {
 const timeAndOffset = timeAndOffsetFormat.format(currentDate);
 
 const time = timeAndOffset.slice(0, 8);
-const zone = timeAndOffset.slice(9);
+let offset = timeAndOffset.slice(9);
