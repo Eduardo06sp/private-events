@@ -4,7 +4,8 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :time_zone %><br />
+    <%= f.label :time_zone %>
+    <div id="dynamic_time_container"><p>Currently: <span id="dynamic_time"></span></p></div>
     <%= f.time_zone_select :time_zone %>
   </div>
 
