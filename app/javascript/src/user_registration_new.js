@@ -45,7 +45,7 @@ const updateTimeSpan = function() {
                                 .textContent
                                 .match(offsetNumbersRegex);
   const selectedOffsetHours = parseInt(selectedOffsetNumbers[0]);
-  const selectedOffsetMinutes = parseInt(selectedOffsetNumbers[1]);
+  let selectedOffsetMinutes = parseInt(selectedOffsetNumbers[1]);
 
   const localOffsetNumbers = offset.match(offsetNumbersRegex);
   const localOffsetHours = parseInt(localOffsetNumbers[0]);
@@ -58,11 +58,8 @@ const updateTimeSpan = function() {
   });
 
   // make selected minutes negative if the hours are negative
-  let minute;
   if (selectedOffsetHours < 0) {
-    minute = -(selectedOffsetMinutes);
-  } else {
-    minute = selectedOffsetMinutes;
+    selectedOffsetMinutes = -selectedOffsetMinutes;
   }
 
   // if localOffset x is negative
@@ -78,14 +75,14 @@ const updateTimeSpan = function() {
     // but is now properly offset (according to the selected time zone)
     currentDate.setUTCHours(
       localToUTCHours + selectedOffsetHours,
-      localToUTCMinutes + minute);
+      localToUTCMinutes + selectedOffsetMinutes);
   } else {
     const localToUTCHours = currentDate.getUTCHours() - Math.abs(localOffsetHours);
     const localToUTCMinutes = currentDate.getUTCMinutes() - Math.abs(localOffsetMinutes);
 
     currentDate.setUTCHours(
       localToUTCHours + selectedOffsetHours,
-      localToUTCMinutes + minute);
+      localToUTCMinutes + selectedOffsetMinutes);
   }
 
   currentTimeSpan.textContent = `${formatter.format(currentDate)} (${selectedOffset})`;
