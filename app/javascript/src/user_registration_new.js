@@ -30,8 +30,6 @@ const selectOffset = function() {
   }
 };
 
-selectOffset();
-
 const updateTimeSpan = function() {
   const offsetNumbersRegex = /[+-]*\d+/g;
   const currentTimeSpan = document.getElementById('dynamic_time');
@@ -93,4 +91,5 @@ const updateTimeSpan = function() {
 };
 
 timeZoneDropdown.addEventListener('change', updateTimeSpan);
+selectOffset();
 updateTimeSpan();
