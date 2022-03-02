@@ -67,6 +67,8 @@ const updateTimeSpan = function() {
 
   // if localOffset x is negative
   if (localOffsetHour < 0) {
+    const localToUTCHours = currentDate.getUTCHours() + Math.abs(localOffsetHour);
+
     // UTC is x hours AHEAD, so add positive x local offset to UTC hour
     // to convert user local time to UTC-equivalent
     // then subtract the selected offset
@@ -74,17 +76,15 @@ const updateTimeSpan = function() {
     // set this as the new UTC time which gets converted to local time
     // but is now properly offset (according to the selected time zone)
     currentDate.setUTCHours(
-      currentDate.getUTCHours() +
-      Math.abs(localOffsetHour) +
-      selectedOffsetHour,
+      localToUTCHours + selectedOffsetHour,
       currentDate.getUTCMinutes() +
       Math.abs(localOffsetMinute) +
       minute);
   } else {
+    const localToUTCHours = currentDate.getUTCHours() - Math.abs(localOffsetHour);
+
     currentDate.setUTCHours(
-      currentDate.getUTCHours() -
-      Math.abs(localOffsetHour) +
-      selectedOffsetHour,
+      localToUTCHours + selectedOffsetHour,
       currentDate.getUTCMinutes() -
       Math.abs(localOffsetMinute) +
       minute);
