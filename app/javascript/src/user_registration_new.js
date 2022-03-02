@@ -47,9 +47,9 @@ const updateTimeSpan = function() {
   const selectedOffsetHour = parseInt(selectedOffsetNumber[0]);
   const selectedOffsetMinute = parseInt(selectedOffsetNumber[1]);
 
-  const localOffsetNumber = offset.match(offsetNumberRegex);
-  const localOffsetHour = parseInt(localOffsetNumber[0]);
-  const localOffsetMinute = parseInt(localOffsetNumber[1]);
+  const localOffsetNumbers = offset.match(offsetNumberRegex);
+  const localOffsetHours = parseInt(localOffsetNumbers[0]);
+  const localOffsetMinutes = parseInt(localOffsetNumbers[1]);
 
   const currentDate = new Date();
   const formatter = new Intl.DateTimeFormat('en-US', {
@@ -66,9 +66,9 @@ const updateTimeSpan = function() {
   }
 
   // if localOffset x is negative
-  if (localOffsetHour < 0) {
-    const localToUTCHours = currentDate.getUTCHours() + Math.abs(localOffsetHour);
-    const localToUTCMinutes = currentDate.getUTCMinutes() + Math.abs(localOffsetMinute);
+  if (localOffsetHours < 0) {
+    const localToUTCHours = currentDate.getUTCHours() + Math.abs(localOffsetHours);
+    const localToUTCMinutes = currentDate.getUTCMinutes() + Math.abs(localOffsetMinutes);
 
     // UTC is x hours AHEAD, so add positive x local offset to UTC hour
     // to convert user local time to UTC-equivalent
@@ -80,8 +80,8 @@ const updateTimeSpan = function() {
       localToUTCHours + selectedOffsetHour,
       localToUTCMinutes + minute);
   } else {
-    const localToUTCHours = currentDate.getUTCHours() - Math.abs(localOffsetHour);
-    const localToUTCMinutes = currentDate.getUTCMinutes() - Math.abs(localOffsetMinute);
+    const localToUTCHours = currentDate.getUTCHours() - Math.abs(localOffsetHours);
+    const localToUTCMinutes = currentDate.getUTCMinutes() - Math.abs(localOffsetMinutes);
 
     currentDate.setUTCHours(
       localToUTCHours + selectedOffsetHour,
