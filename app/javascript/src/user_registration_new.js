@@ -46,6 +46,8 @@ const updateTimeSpan = function() {
     .match(offsetNumberRegex);
   const localOffsetNumber = offset.match(offsetNumberRegex);
 
+  const selectedOffsetHour = parseInt(selectedOffsetNumber[0]);
+
   const currentDate = new Date();
   const formatter = new Intl.DateTimeFormat('en-US', {
     hour: '2-digit',
@@ -54,7 +56,7 @@ const updateTimeSpan = function() {
 
   // make selected minutes negative if the hours are negative
   let minute;
-  if (parseInt(selectedOffsetNumber[0]) < 0) {
+  if (selectedOffsetHour < 0) {
     minute = -(parseInt(selectedOffsetNumber[1]));
   } else {
     minute = parseInt(selectedOffsetNumber[1]);
@@ -71,7 +73,7 @@ const updateTimeSpan = function() {
     currentDate.setUTCHours(
       currentDate.getUTCHours() +
       Math.abs(parseInt(localOffsetNumber[0])) +
-      parseInt(selectedOffsetNumber[0]),
+      selectedOffsetHour,
       currentDate.getUTCMinutes() +
       Math.abs(parseInt(localOffsetNumber[1])) +
       minute);
@@ -79,7 +81,7 @@ const updateTimeSpan = function() {
     currentDate.setUTCHours(
       currentDate.getUTCHours() -
       Math.abs(parseInt(localOffsetNumber[0])) +
-      parseInt(selectedOffsetNumber[0]),
+      selectedOffsetHour,
       currentDate.getUTCMinutes() -
       Math.abs(parseInt(localOffsetNumber[1])) +
       minute);
