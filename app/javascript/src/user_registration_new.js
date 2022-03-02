@@ -50,6 +50,7 @@ const updateTimeSpan = function() {
   const selectedOffsetMinute = parseInt(selectedOffsetNumber[1]);
 
   const localOffsetHour = parseInt(localOffsetNumber[0]);
+  const localOffsetMinute = parseInt(localOffsetNumber[1]);
 
   const currentDate = new Date();
   const formatter = new Intl.DateTimeFormat('en-US', {
@@ -78,7 +79,7 @@ const updateTimeSpan = function() {
       Math.abs(localOffsetHour) +
       selectedOffsetHour,
       currentDate.getUTCMinutes() +
-      Math.abs(parseInt(localOffsetNumber[1])) +
+      Math.abs(localOffsetMinute) +
       minute);
   } else {
     currentDate.setUTCHours(
@@ -86,7 +87,7 @@ const updateTimeSpan = function() {
       Math.abs(localOffsetHour) +
       selectedOffsetHour,
       currentDate.getUTCMinutes() -
-      Math.abs(parseInt(localOffsetNumber[1])) +
+      Math.abs(localOffsetMinute) +
       minute);
   }
 
