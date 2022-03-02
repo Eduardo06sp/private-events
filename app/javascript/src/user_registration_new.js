@@ -41,11 +41,11 @@ const updateTimeSpan = function() {
   const selectedOffset = selectedTimeZoneOption
     .textContent
     .match(offsetRegex)[0];
-  const selectedOffsetNumber = selectedTimeZoneOption
+  const selectedOffsetNumbers = selectedTimeZoneOption
     .textContent
     .match(offsetNumberRegex);
-  const selectedOffsetHour = parseInt(selectedOffsetNumber[0]);
-  const selectedOffsetMinute = parseInt(selectedOffsetNumber[1]);
+  const selectedOffsetHours = parseInt(selectedOffsetNumbers[0]);
+  const selectedOffsetMinutes = parseInt(selectedOffsetNumbers[1]);
 
   const localOffsetNumbers = offset.match(offsetNumberRegex);
   const localOffsetHours = parseInt(localOffsetNumbers[0]);
@@ -59,10 +59,10 @@ const updateTimeSpan = function() {
 
   // make selected minutes negative if the hours are negative
   let minute;
-  if (selectedOffsetHour < 0) {
-    minute = -(selectedOffsetMinute);
+  if (selectedOffsetHours < 0) {
+    minute = -(selectedOffsetMinutes);
   } else {
-    minute = selectedOffsetMinute;
+    minute = selectedOffsetMinutes;
   }
 
   // if localOffset x is negative
@@ -77,14 +77,14 @@ const updateTimeSpan = function() {
     // set this as the new UTC time which gets converted to local time
     // but is now properly offset (according to the selected time zone)
     currentDate.setUTCHours(
-      localToUTCHours + selectedOffsetHour,
+      localToUTCHours + selectedOffsetHours,
       localToUTCMinutes + minute);
   } else {
     const localToUTCHours = currentDate.getUTCHours() - Math.abs(localOffsetHours);
     const localToUTCMinutes = currentDate.getUTCMinutes() - Math.abs(localOffsetMinutes);
 
     currentDate.setUTCHours(
-      localToUTCHours + selectedOffsetHour,
+      localToUTCHours + selectedOffsetHours,
       localToUTCMinutes + minute);
   }
 
