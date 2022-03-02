@@ -57,7 +57,6 @@ const updateTimeSpan = function() {
     minute: '2-digit',
   });
 
-  // make selected minutes negative if the hours are negative
   if (selectedOffsetHours < 0) {
     selectedOffsetMinutes = -selectedOffsetMinutes;
   }
