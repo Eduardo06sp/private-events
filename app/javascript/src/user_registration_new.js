@@ -30,7 +30,7 @@ const selectOffset = function() {
   }
 };
 
-selectOffset(); // this line & above needs refactoring too
+selectOffset();
 
 const updateTimeSpan = function() {
   const offsetNumbersRegex = /[+-]*\d+/g;
@@ -89,9 +89,6 @@ const updateTimeSpan = function() {
   }
 
   currentTimeSpan.textContent = `${formatter.format(currentDate)} (${selectedOffset})`;
-
-  /* whole function needs refactoring */
-  // change let to constants?
 };
 
 timeZoneDropdown.addEventListener('change', updateTimeSpan);
