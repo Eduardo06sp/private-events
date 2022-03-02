@@ -33,22 +33,21 @@ const selectOffset = function() {
 selectOffset(); // this line & above needs refactoring too
 
 const updateTimeSpan = function() {
+  const offsetNumberRegex = /[+-]*\d+/g;
   const currentTimeSpan = document.getElementById('dynamic_time');
+
   const selectedOptionIndex = timeZoneDropdown.selectedIndex;
   const selectedTimeZoneOption = timeZoneDropdown.children[selectedOptionIndex];
   const selectedOffset = selectedTimeZoneOption
     .textContent
     .match(offsetRegex)[0];
-
-  const offsetNumberRegex = /[+-]*\d+/g;
   const selectedOffsetNumber = selectedTimeZoneOption
     .textContent
     .match(offsetNumberRegex);
-  const localOffsetNumber = offset.match(offsetNumberRegex);
-
   const selectedOffsetHour = parseInt(selectedOffsetNumber[0]);
   const selectedOffsetMinute = parseInt(selectedOffsetNumber[1]);
 
+  const localOffsetNumber = offset.match(offsetNumberRegex);
   const localOffsetHour = parseInt(localOffsetNumber[0]);
   const localOffsetMinute = parseInt(localOffsetNumber[1]);
 
