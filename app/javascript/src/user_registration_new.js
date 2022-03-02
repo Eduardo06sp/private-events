@@ -47,6 +47,7 @@ const updateTimeSpan = function() {
   const localOffsetNumber = offset.match(offsetNumberRegex);
 
   const selectedOffsetHour = parseInt(selectedOffsetNumber[0]);
+  const selectedOffsetMinute = parseInt(selectedOffsetNumber[1]);
 
   const currentDate = new Date();
   const formatter = new Intl.DateTimeFormat('en-US', {
@@ -57,9 +58,9 @@ const updateTimeSpan = function() {
   // make selected minutes negative if the hours are negative
   let minute;
   if (selectedOffsetHour < 0) {
-    minute = -(parseInt(selectedOffsetNumber[1]));
+    minute = -(selectedOffsetMinute);
   } else {
-    minute = parseInt(selectedOffsetNumber[1]);
+    minute = selectedOffsetMinute;
   }
 
   // if localOffset x is negative
