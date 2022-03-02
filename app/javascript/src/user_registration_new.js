@@ -34,19 +34,19 @@ selectOffset(); // this line & above needs refactoring too
 
 const updateTimeSpan = function() {
   const currentTimeSpan = document.getElementById('dynamic_time');
-  let selectedOptionIndex = timeZoneDropdown.selectedIndex;
-  let selectedTimeZoneOption = timeZoneDropdown.children[selectedOptionIndex];
-  let selectedOffset = selectedTimeZoneOption
+  const selectedOptionIndex = timeZoneDropdown.selectedIndex;
+  const selectedTimeZoneOption = timeZoneDropdown.children[selectedOptionIndex];
+  const selectedOffset = selectedTimeZoneOption
     .textContent
     .match(offsetRegex)[0];
 
   const offsetNumberRegex = /[+-]*\d+/g;
-  let selectedOffsetNumber = selectedTimeZoneOption
+  const selectedOffsetNumber = selectedTimeZoneOption
     .textContent
     .match(offsetNumberRegex);
-  let localOffsetNumber = offset.match(offsetNumberRegex);
+  const localOffsetNumber = offset.match(offsetNumberRegex);
 
-  let currentDate = new Date();
+  const currentDate = new Date();
   const formatter = new Intl.DateTimeFormat('en-US', {
     hour: '2-digit',
     minute: '2-digit',
