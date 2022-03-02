@@ -92,3 +92,4 @@ const updateTimeSpan = function() {
 };
 
 timeZoneDropdown.addEventListener('change', updateTimeSpan);
+updateTimeSpan();
