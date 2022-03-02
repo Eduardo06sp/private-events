@@ -39,11 +39,11 @@ const updateTimeSpan = function() {
   const selectedOptionIndex = timeZoneDropdown.selectedIndex;
   const selectedTimeZoneOption = timeZoneDropdown.children[selectedOptionIndex];
   const selectedOffset = selectedTimeZoneOption
-    .textContent
-    .match(offsetRegex)[0];
+                         .textContent
+                         .match(offsetRegex)[0];
   const selectedOffsetNumbers = selectedTimeZoneOption
-    .textContent
-    .match(offsetNumberRegex);
+                                .textContent
+                                .match(offsetNumberRegex);
   const selectedOffsetHours = parseInt(selectedOffsetNumbers[0]);
   const selectedOffsetMinutes = parseInt(selectedOffsetNumbers[1]);
 
