@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  after_action :create_timewithzones, only: :create
+
   def index
   end
 
@@ -30,5 +32,19 @@ class EventsController < ApplicationController
       :end_date,
       :end_time
     )
+  end
+
+  def create_timewithzones
+    Time.zone = current_user.time_zone
+    start_time_string = "#{@event.start_date} #{@event.start_time}"
+    start_time_converted = Time.zone.parse(start_time_string)
+
+    end_time_string = "#{@event.end_date} #{@event.end_time}"
+    end_time_converted = Time.zone.parse(end_time_string)
+
+    @event.start_timewithzone = start_time_converted
+    @event.end_timewithzone = end_time_converted
+
+    @event.save
   end
 end
