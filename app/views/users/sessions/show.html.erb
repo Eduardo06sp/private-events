@@ -6,8 +6,16 @@
 </ul>
 
 <h2>Event Attendings</h2>
+<h3>Upcoming</h3>
 <ul>
-  <% @user.attended_events.each do |event| %>
+  <% Event.joins(:creator).where('events.start_timewithzone >= ?', Time.current).each do |event| %>
+    <li><%= event.name %></li>
+  <% end %>
+</ul>
+
+<h3>Past</h3>
+<ul>
+  <% Event.joins(:creator).where('events.end_timewithzone < ?', Time.current).each do |event| %>
     <li><%= event.name %></li>
   <% end %>
 </ul>
