@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   after_action :create_timewithzones, only: :create
 
   def index
+    @events = Event.all
   end
 
   def new
