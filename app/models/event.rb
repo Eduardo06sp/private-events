@@ -4,11 +4,6 @@ class Event < ApplicationRecord
   has_many :invitations, foreign_key: :attended_event_id
   has_many :attendees, through: :invitations, source: :attendee
 
-  def self.upcoming
-    Event.joins(:creator).where('events.start_timewithzone >= ?', Time.current)
-  end
-
-  def self.past
-    Event.joins(:creator).where('events.end_timewithzone < ?', Time.current)
-  end
+  scope :upcoming, -> { where('events.start_timewithzone >= ?', Time.current) }
+  scope :past, -> { where('events.end_timewithzone < ?', Time.current) }
 end

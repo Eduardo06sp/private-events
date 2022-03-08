@@ -8,14 +8,14 @@
 <h2>Event Attendings</h2>
 <h3>Upcoming</h3>
 <ul>
-  <% Event.upcoming.each do |event| %>
+  <% @user.attended_events.upcoming.each do |event| %>
     <li><%= event.name %></li>
   <% end %>
 </ul>
 
 <h3>Past</h3>
 <ul>
-  <% Event.past.each do |event| %>
+  <% @user.attended_events.past.each do |event| %>
     <li><%= event.name %></li>
   <% end %>
 </ul>
