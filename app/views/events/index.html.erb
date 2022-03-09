@@ -2,7 +2,7 @@
 <%= link_to "New event", new_event_path %>
 
 <% @events.each do |event| %>
-  <section class="event">
+  <article class="event">
     <p class="event-name"><%= event.name %></p>
     <p class="event-start-time">
     <%= Time.zone.parse(event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
@@ -10,5 +10,5 @@
 
     <p class="event-location"><%= event.location %></p>
     <p class="event-description"><%= event.description %></p>
-  </section>
+  </article>
 <% end %>
