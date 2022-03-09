@@ -2,7 +2,7 @@
 
 <ul>
     <li><%= @event.name %></li>
-    <li><p>This is a dumm-e description!</p></li>
+    <li><%= @event.description %></li>
 
     <% if @event.attendees.any? %>
       <h2>Attendees</h2>
