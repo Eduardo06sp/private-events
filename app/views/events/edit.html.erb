@@ -21,7 +21,8 @@
   </div>
   <div>
     <%= form.label :start_time %>
-    <%= form.time_field :start_time, value: '12:00' %>
+    <%= form.time_field :start_time,
+        value: Time.parse(@event.start_time).strftime('%H:%M') %>
   </div>
 
   <div>
@@ -31,7 +32,8 @@
   </div>
   <div>
     <%= form.label :end_time %>
-    <%= form.time_field :end_time, value: '23:00' %>
+    <%= form.time_field :end_time,
+        value: Time.parse(@event.end_time).strftime('%H:%M') %>
   </div>
 
   <div>
