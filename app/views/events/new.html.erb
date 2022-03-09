@@ -7,6 +7,11 @@
   </div>
 
   <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
     <%= form.label :start_date %>
     <%= form.date_field :start_date,
         value: Date.parse(1.week.from_now.strftime('%a, %d %B %Y')) %>
