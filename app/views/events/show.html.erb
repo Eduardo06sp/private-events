@@ -1,24 +1,24 @@
 <h1>Event Page</h1>
 
-<ul>
-    <li><%= @event.name %></li>
-    <li><%= @event.location %></li>
-    <li><%= @event.description %></li>
+<section>
+    <p><%= @event.name %></p>
+    <p><%= @event.location %></p>
+    <p><%= @event.description %></p>
 
-    <li>Begins:
+    <p>Begins:
       <%= Time.zone.parse(@event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
-    </li>
-    <li>Ends:
+    </p>
+    <p>Ends:
       <%= Time.zone.parse(@event.end_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
-    </li>
+    </p>
 
     <% if @event.attendees.any? %>
       <h2>Attendees</h2>
       <% @event.attendees.each do |attendee| %>
-        <li><%= attendee.username %></li>
+        <p><%= attendee.username %></p>
       <% end %>
     <% end %>
 
     <p>Click below to see if joining an event works!</p>
     <%= button_to 'Join Event', invitations_path, params: { event_id: @event.id } %>
-</ul>
+</section>
