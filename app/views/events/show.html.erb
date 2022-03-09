@@ -5,6 +5,13 @@
     <li><%= @event.location %></li>
     <li><%= @event.description %></li>
 
+    <li>Begins:
+      <%= Time.zone.parse(@event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
+    </li>
+    <li>Ends:
+      <%= Time.zone.parse(@event.end_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
+    </li>
+
     <% if @event.attendees.any? %>
       <h2>Attendees</h2>
       <% @event.attendees.each do |attendee| %>
