@@ -12,6 +12,7 @@
     <p class="event-description"><%= event.description %></p>
 
     <div class="event-actions">
+      <%= link_to "View", "/events/#{event.id}" %>
     </div>
   </article>
 <% end %>
