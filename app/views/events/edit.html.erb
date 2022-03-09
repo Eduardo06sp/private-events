@@ -17,7 +17,7 @@
   <div>
     <%= form.label :start_date %>
     <%= form.date_field :start_date,
-        value: Date.parse(1.week.from_now.strftime('%a, %d %B %Y')) %>
+        value: Date.parse(@event.start_date) %>
   </div>
   <div>
     <%= form.label :start_time %>
@@ -27,7 +27,7 @@
   <div>
     <%= form.label :end_date %>
     <%= form.date_field :end_date,
-        value: Date.parse(1.week.from_now.strftime('%a, %d %B %Y')) %>
+        value: Date.parse(@event.end_date) %>
   </div>
   <div>
     <%= form.label :end_time %>
