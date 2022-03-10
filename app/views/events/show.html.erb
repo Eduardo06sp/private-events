@@ -21,4 +21,6 @@
 
     <p>Click below to see if joining an event works!</p>
     <%= button_to 'Join Event', invitations_path, params: { event_id: @event.id } %>
+    <%= button_to 'Leave Event', invitation_path,
+        params: { event_id: @event.id }, method: :delete %>
 </article>
