@@ -19,7 +19,6 @@
       <% end %>
     <% end %>
 
-    <p>Click below to see if joining an event works!</p>
     <% if @event.attendees.exists?(current_user.id) %>
       <%= button_to 'Leave Event', invitation_path,
           params: { event_id: @event.id }, method: :delete %>
