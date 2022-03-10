@@ -11,4 +11,15 @@ class InvitationsController < ApplicationController
       redirect_back fallback_location: '/events'
     end
   end
+
+  def destroy
+    current_event = Event.find(params[:event_id])
+    @invitation = current_user.invitations.find_by(
+      'attended_event_id = ?',
+      current_event.id
+    )
+
+    @invitation.destroy
+    redirect_back fallback_location: "/events/#{current_event.id}"
+  end
 end
