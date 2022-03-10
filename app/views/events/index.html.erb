@@ -14,6 +14,7 @@
     <div class="event-actions">
       <%= link_to "View", event_path(event.id) %>
       <%= link_to "Edit", edit_event_path(event.id) %>
+      <%= link_to "Delete", event_path(event.id), method: :delete %>
     </div>
   </article>
 <% end %>
