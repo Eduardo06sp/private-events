@@ -20,9 +20,9 @@
     <% end %>
 
     <% if @event.attendees.exists?(current_user.id) %>
-      <%= button_to 'Leave Event', invitation_path,
+      <%= button_to 'Leave Event', event_attending_path,
           params: { event_id: @event.id }, method: :delete %>
     <% else %>
-      <%= button_to 'Join Event', invitations_path, params: { event_id: @event.id } %>
+      <%= button_to 'Join Event', event_attendings_path, params: { event_id: @event.id } %>
     <% end %>
 </article>

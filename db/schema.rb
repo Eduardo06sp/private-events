@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_021521) do
+ActiveRecord::Schema.define(version: 2022_03_10_072009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_attendings", force: :cascade do |t|
+    t.bigint "attendee_id", null: false
+    t.bigint "attended_event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["attended_event_id"], name: "index_event_attendings_on_attended_event_id"
+    t.index ["attendee_id"], name: "index_event_attendings_on_attendee_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -32,15 +41,6 @@ ActiveRecord::Schema.define(version: 2022_03_09_021521) do
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
-  create_table "invitations", force: :cascade do |t|
-    t.bigint "attendee_id", null: false
-    t.bigint "attended_event_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["attended_event_id"], name: "index_invitations_on_attended_event_id"
-    t.index ["attendee_id"], name: "index_invitations_on_attendee_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2022_03_09_021521) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "event_attendings", "events", column: "attended_event_id"
+  add_foreign_key "event_attendings", "users", column: "attendee_id"
   add_foreign_key "events", "users", column: "creator_id"
-  add_foreign_key "invitations", "events", column: "attended_event_id"
-  add_foreign_key "invitations", "users", column: "attendee_id"
 end

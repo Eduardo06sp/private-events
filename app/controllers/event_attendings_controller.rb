@@ -1,7 +1,7 @@
-class InvitationsController < ApplicationController
+class EventAttendingsController < ApplicationController
   def create
     current_event = Event.find(params[:event_id])
-    @invitation = current_user.invitations.build(attended_event_id: current_event.id)
+    @event_attending = current_user.event_attendings.build(attended_event_id: current_event.id)
 
     if current_user.save
       flash[:notice] = 'SUCCESS'
@@ -14,12 +14,12 @@ class InvitationsController < ApplicationController
 
   def destroy
     current_event = Event.find(params[:event_id])
-    @invitation = current_user.invitations.find_by(
+    @event_attending = current_user.event_attendings.find_by(
       'attended_event_id = ?',
       current_event.id
     )
 
-    @invitation.destroy
+    @event_attending.destroy
     redirect_back fallback_location: "/events/#{current_event.id}"
   end
 end
