@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     post '/users/sign_out' => 'users/sessions#destroy'
   end
 
-  resources :events, only: [:index, :new, :create, :show, :edit, :update]
+  resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :invitations, only: :create
   root to: 'events#index'
 end
