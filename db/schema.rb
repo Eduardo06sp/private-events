@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_12_223358) do
+ActiveRecord::Schema.define(version: 2022_03_14_020413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_03_12_223358) do
     t.string "start_timewithzone"
     t.string "end_timewithzone"
     t.string "location"
+    t.text "invited_users", default: [], array: true
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
