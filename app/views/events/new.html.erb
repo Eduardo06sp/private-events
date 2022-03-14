@@ -35,6 +35,14 @@
   </div>
 
   <div>
+    <p>Privacy</p>
+    <p>Private events are only visibile to invited guests!<p>
+    <%= form.radio_button :private, false, checked: true %>
+    <%= form.label :private_false, 'Public' %>
+    <%= form.radio_button :private, true %>
+    <%= form.label :private_true, "Private" %>
+  </div>
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
