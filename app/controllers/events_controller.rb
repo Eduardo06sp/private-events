@@ -54,7 +54,8 @@ class EventsController < ApplicationController
       :start_date,
       :start_time,
       :end_date,
-      :end_time
+      :end_time,
+      :private
     )
   end
 
