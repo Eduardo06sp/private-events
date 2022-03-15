@@ -42,6 +42,14 @@
     <%= form.radio_button :private, true %>
     <%= form.label :private_true, "Private" %>
   </div>
+
+  <div>
+    <p>Invited Users</p>
+    <% User.all.each do |user| %>
+      <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
+      <%= label_tag "updated_invited_users_user_#{user.id}", user.username %>
+    <% end %>
+  </div>
   <div>
     <%= form.submit %>
   </div>
