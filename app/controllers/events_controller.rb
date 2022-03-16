@@ -82,12 +82,23 @@ class EventsController < ApplicationController
                       end
 
     new_invites = updated_invites - old_invites
+    removed_invites = old_invites - updated_invites
 
     new_invites.each do |user_id|
       invited_user = User.find(user_id)
       invited_user.invitations.build(invited_event_id: @event.id)
 
       invited_user.save || flash[:notice] = 'INVITATION UNSUCCESSFUL'
+    end
+
+    removed_invites.each do |user_id|
+      invited_user = User.find(user_id)
+      invited_event = invited_user.invitations.find_by(
+        'invited_event_id = ?',
+        @event.id
+      )
+
+      invited_event.destroy || flash[:notice] = 'COULD NOT DELETE INVITATION'
     end
 
     @event.invited_users_will_change!
