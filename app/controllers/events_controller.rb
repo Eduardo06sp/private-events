@@ -72,4 +72,12 @@ class EventsController < ApplicationController
 
     @event.save
   end
+
+  def update_invited_users
+    old_invites = @event.invited_users
+    updated_invites = params[:updated_invited_users].values
+
+    @event.invited_users_will_change!
+    @event.invited_users = updated_invites
+  end
 end
