@@ -77,6 +77,15 @@ class EventsController < ApplicationController
     old_invites = @event.invited_users
     updated_invites = params[:updated_invited_users].values
 
+    new_invites = updated_invites - old_invites
+
+    new_invites.each do |user_id|
+      invited_user = User.find(user_id)
+      invited_user.invitations.build(invited_event_id: @event.id)
+
+      invited_user.save || flash[:notice] = 'INVITATION UNSUCCESSFUL'
+    end
+
     @event.invited_users_will_change!
     @event.invited_users = updated_invites
   end
