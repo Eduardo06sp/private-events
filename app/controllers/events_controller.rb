@@ -75,7 +75,11 @@ class EventsController < ApplicationController
 
   def update_invited_users
     old_invites = @event.invited_users
-    updated_invites = params[:updated_invited_users].values
+    updated_invites = if params[:updated_invited_users]
+                        params[:updated_invited_users].values
+                      else
+                        []
+                      end
 
     new_invites = updated_invites - old_invites
 
