@@ -74,6 +74,8 @@ class EventsController < ApplicationController
   end
 
   def update_invited_users
+    return unless @event.private
+
     old_invites = @event.invited_users
     updated_invites = if params[:updated_invited_users]
                         params[:updated_invited_users].values
