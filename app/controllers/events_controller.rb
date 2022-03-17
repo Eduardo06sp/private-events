@@ -106,4 +106,14 @@ class EventsController < ApplicationController
     @event.invited_users_will_change!
     @event.invited_users = updated_invites
   end
+
+  def authorize_access
+    @event = Event.find(params[:id])
+
+    return unless @event.private || user_signed_in?
+    return if @event.creator_id == current_user.id
+    return if @event.private && @event.invited_users.include?(current_user.id.to_s)
+
+    redirect_to root_path
+  end
 end
