@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authorize_access, only: [:show, :edit, :update]
   after_action :create_timewithzones, :update_invited_users, only: [:create, :update]
 
   def index
