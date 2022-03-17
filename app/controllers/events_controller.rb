@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  after_action :create_timewithzones, only: [:create, :update]
+  after_action :create_timewithzones, :update_invited_users, only: [:create, :update]
 
   def index
     @events = Event.all
