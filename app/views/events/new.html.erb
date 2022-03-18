@@ -43,7 +43,7 @@
     <%= form.label :private_true, "Private" %>
   </div>
 
-  <div>
+  <div id="invited-users-container">
     <p>Invited Users</p>
     <% User.all.each do |user| %>
       <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
