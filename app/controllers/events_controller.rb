@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :redirect_guest, except: [:show, :index]
   before_action :authorize_access, only: [:show, :edit, :update]
+  before_action :authorize_modification, only: [:edit, :update, :destroy]
   after_action :create_timewithzones, :update_invited_users, only: [:create, :update]
 
   def index
@@ -121,5 +122,10 @@ class EventsController < ApplicationController
     return if @event.private && @event.invited_users.include?(current_user.id.to_s)
 
     redirect_to root_path
+  end
+
+  def authorize_modification
+    redirect_to root_path unless user_signed_in? &&
+                                 params[:creator_id] == current_user.id
   end
 end
