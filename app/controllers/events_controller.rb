@@ -125,7 +125,8 @@ class EventsController < ApplicationController
   end
 
   def authorize_modification
+    creator_id = Event.find(params[:id]).creator_id
     redirect_to root_path unless user_signed_in? &&
-                                 params[:creator_id] == current_user.id
+                                 creator_id == current_user.id
   end
 end
