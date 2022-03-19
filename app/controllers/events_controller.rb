@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :redirect_guest, except: [:show, :index]
   before_action :authorize_access, only: [:show, :edit, :update]
   after_action :create_timewithzones, :update_invited_users, only: [:create, :update]
 
@@ -106,6 +107,10 @@ class EventsController < ApplicationController
 
     @event.invited_users_will_change!
     @event.invited_users = updated_invites
+  end
+
+  def redirect_guest
+    redirect_to root_path unless user_signed_in?
   end
 
   def authorize_access
