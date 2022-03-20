@@ -11,4 +11,5 @@ class Event < ApplicationRecord
   scope :past, -> { where('events.end_timewithzone < ?', Time.current) }
 
   validates :name, presence: true, length: { in: 3..50 }
+  validates :location, presence: true
 end
