@@ -10,6 +10,6 @@ class User < ApplicationRecord
   has_many :invitations, foreign_key: :invitee_id
   has_many :invited_events, through: :invitations
 
-  validates :email, uniqueness: true, presence: true, length: { minimum: 5 }
   validates :username, uniqueness: true, presence: true, length: { in: 3..20 }
+  validates :email, uniqueness: true, presence: true, length: { minimum: 5 }
 end
