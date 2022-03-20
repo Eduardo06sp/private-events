@@ -11,5 +11,5 @@ class User < ApplicationRecord
   has_many :invited_events, through: :invitations
 
   validates :email, uniqueness: true
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, presence: true, length: { in: 3..20 }
 end
