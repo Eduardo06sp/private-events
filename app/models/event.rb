@@ -12,4 +12,8 @@ class Event < ApplicationRecord
 
   validates :name, presence: true, length: { in: 3..50 }
   validates :location, presence: true
+  validates :start_date,
+            :start_time,
+            :end_date,
+            :end_time, presence: true
 end
