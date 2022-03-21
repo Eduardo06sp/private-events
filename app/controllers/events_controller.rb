@@ -91,9 +91,9 @@ class EventsController < ApplicationController
 
     new_invites.each do |user_id|
       invited_user = User.find(user_id)
-      invited_user.invitations.build(invited_event_id: @event.id)
+      invitation = invited_user.invitations.build(invited_event_id: @event.id)
 
-      invited_user.save || flash[:notice] = 'INVITATION UNSUCCESSFUL'
+      invitation.save || flash[:notice] = 'INVITATION UNSUCCESSFUL'
     end
 
     removed_invites.each do |user_id|
