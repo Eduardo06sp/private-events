@@ -3,7 +3,7 @@ class EventAttendingsController < ApplicationController
     current_event = Event.find(params[:event_id])
     @event_attending = current_user.event_attendings.build(attended_event_id: current_event.id)
 
-    if current_user.save
+    if @event_attending.save
       flash[:notice] = 'SUCCESS'
       redirect_back fallback_location: '/events'
     else
