@@ -34,4 +34,11 @@
         <%= button_to 'Join Event', event_attendings_path, params: { event_id: @event.id } %>
       <% end %>
     <% end %>
+
+    <div class="event-actions">
+      <% if user_signed_in? && @event.creator_id == current_user.id %>
+        <%= link_to "Edit", edit_event_path(@event.id) %>
+        <%= link_to "Delete", event_path(@event.id), method: :delete %>
+      <% end %>
+    </div>
 </article>
