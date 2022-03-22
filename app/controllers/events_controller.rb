@@ -17,11 +17,13 @@ class EventsController < ApplicationController
   end
 
   def create
+    @submission_successful = true
     @event = current_user.created_events.build(event_params)
 
     if @event.save
       redirect_to @event
     else
+      @submission_successful = false
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,11 +33,13 @@ class EventsController < ApplicationController
   end
 
   def update
+    @submission_successful = true
     @event = Event.find(params[:id])
 
     if @event.update(event_params)
       redirect_to @event
     else
+      @submission_successful = false
       render :edit, status: :unprocessable_entity
     end
   end
