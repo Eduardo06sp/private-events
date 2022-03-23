@@ -39,4 +39,16 @@ html {
 
 /* HEADER */
 
+header {
+  display: flex;
+}
+
+#logo-container {
+  max-width: 150px;
+}
+
+#logo {
+  width: 100%;
+}
+
 /* EVENT CARDS */
