@@ -37,6 +37,10 @@ html {
   top: -9999px;
 }
 
+body {
+  font-family: Helvetica, sans-serif;
+}
+
 /* HEADER */
 
 header {
