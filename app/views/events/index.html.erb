@@ -15,13 +15,15 @@
       <% end %>
 
       <article class="event">
-        <p class="event-name"><%= event.name %></p>
-        <p class="event-start-time">
-        <%= Time.zone.parse(event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
-        </p>
+        <div class="event-details">
+          <p class="event-name"><%= event.name %></p>
+          <p class="event-start-time">
+          <%= Time.zone.parse(event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
+          </p>
 
-        <p class="event-location"><%= event.location %></p>
-        <p class="event-description"><%= event.description %></p>
+          <p class="event-location"><%= event.location %></p>
+          <p class="event-description"><%= event.description %></p>
+        </div>
 
         <div class="event-actions">
           <%= link_to "View", event_path(event.id) %>
