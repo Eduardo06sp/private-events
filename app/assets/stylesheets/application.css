@@ -44,6 +44,7 @@ body {
 
 a {
   text-decoration: none;
+  padding: 8px;
 }
 
 a:active, a:hover {
