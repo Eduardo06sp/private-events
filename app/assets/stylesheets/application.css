@@ -68,4 +68,8 @@ body > header {
   width: 100%;
 }
 
+#events-section header {
+  padding-left: 10px;
+}
+
 /* EVENT CARDS */
