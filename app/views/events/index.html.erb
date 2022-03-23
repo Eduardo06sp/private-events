@@ -1,9 +1,11 @@
 <section>
-  <h2>Events</h2>
+  <header>
+    <h2>Events</h2>
 
-  <% if user_signed_in? %>
-    <%= link_to "New event", new_event_path %>
-  <% end %>
+    <% if user_signed_in? %>
+      <%= link_to "New event", new_event_path %>
+    <% end %>
+  </header>
 
   <div class="events-container">
     <% @events.each do |event| %>
