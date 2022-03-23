@@ -1,33 +1,35 @@
-<h2>Events</h2>
+<section>
+  <h2>Events</h2>
 
-<% if user_signed_in? %>
-  <%= link_to "New event", new_event_path %>
-<% end %>
-
-<% @events.each do |event| %>
-
-  <% if event.private %>
-    <% next unless user_signed_in? %>
-    <% next unless (event.private && event.invited_users.include?(current_user.id.to_s)) ||
-      event.creator_id == current_user.id %>
+  <% if user_signed_in? %>
+    <%= link_to "New event", new_event_path %>
   <% end %>
 
-  <article class="event">
-    <p class="event-name"><%= event.name %></p>
-    <p class="event-start-time">
-    <%= Time.zone.parse(event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
-    </p>
+  <% @events.each do |event| %>
 
-    <p class="event-location"><%= event.location %></p>
-    <p class="event-description"><%= event.description %></p>
+    <% if event.private %>
+      <% next unless user_signed_in? %>
+      <% next unless (event.private && event.invited_users.include?(current_user.id.to_s)) ||
+        event.creator_id == current_user.id %>
+    <% end %>
 
-    <div class="event-actions">
-      <%= link_to "View", event_path(event.id) %>
+    <article class="event">
+      <p class="event-name"><%= event.name %></p>
+      <p class="event-start-time">
+      <%= Time.zone.parse(event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
+      </p>
 
-      <% if user_signed_in? && event.creator_id == current_user.id %>
-        <%= link_to "Edit", edit_event_path(event.id) %>
-        <%= link_to "Delete", event_path(event.id), method: :delete %>
-      <% end %>
-    </div>
-  </article>
-<% end %>
+      <p class="event-location"><%= event.location %></p>
+      <p class="event-description"><%= event.description %></p>
+
+      <div class="event-actions">
+        <%= link_to "View", event_path(event.id) %>
+
+        <% if user_signed_in? && event.creator_id == current_user.id %>
+          <%= link_to "Edit", edit_event_path(event.id) %>
+          <%= link_to "Delete", event_path(event.id), method: :delete %>
+        <% end %>
+      </div>
+    </article>
+  <% end %>
+</section>
