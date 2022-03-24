@@ -4,7 +4,7 @@
 
   <% if @event.errors.any? %>
     <div id="validation-errors">
-      <h2>Form <%= 'Error'.pluralize(@event.errors.count) %></h2>
+      <h3>Form <%= 'Error'.pluralize(@event.errors.count) %></h3>
       <ul>
         <% @event.errors.each do |error| %>
           <li><%= error.full_message %></li>
