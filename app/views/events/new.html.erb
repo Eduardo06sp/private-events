@@ -1,69 +1,71 @@
-<h2>New Event</h2>
+<section id="new-event-section">
+  <h2>New Event</h2>
 
-<% if @event.errors.any? %>
-  <div id="validation-errors">
-    <h2>Form <%= 'Error'.pluralize(@event.errors.count) %></h2>
-    <ul>
-      <% @event.errors.each do |error| %>
-        <li><%= error.full_message %></li>
+  <% if @event.errors.any? %>
+    <div id="validation-errors">
+      <h2>Form <%= 'Error'.pluralize(@event.errors.count) %></h2>
+      <ul>
+        <% @event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with model: @event do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :description %>
+      <%= form.text_area :description, rows: 6, cols: 40 %>
+    </div>
+    <div>
+      <%= form.label :location %>
+      <%= form.text_field :location %>
+    </div>
+
+    <div>
+      <%= form.label :start_date %>
+      <%= form.date_field :start_date,
+        value: Date.parse(1.week.from_now.strftime('%a, %d %B %Y')) %>
+    </div>
+    <div>
+      <%= form.label :start_time %>
+      <%= form.time_field :start_time, value: '12:00' %>
+    </div>
+
+    <div>
+      <%= form.label :end_date %>
+      <%= form.date_field :end_date,
+        value: Date.parse(1.week.from_now.strftime('%a, %d %B %Y')) %>
+    </div>
+    <div>
+      <%= form.label :end_time %>
+      <%= form.time_field :end_time, value: '23:00' %>
+    </div>
+
+    <div id="privacy-container">
+      <p>Privacy</p>
+      <p>Private events are only visibile to invited guests!<p>
+      <%= form.radio_button :private, false, checked: true %>
+      <%= form.label :private_false, 'Public' %>
+      <%= form.radio_button :private, true %>
+      <%= form.label :private_true, "Private" %>
+    </div>
+
+    <div id="invited-users-container">
+      <p>Invited Users</p>
+      <% User.all.each do |user| %>
+        <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
+        <%= label_tag "updated_invited_users_user_#{user.id}", user.username %>
       <% end %>
-    </ul>
-  </div>
-<% end %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
 
-<%= form_with model: @event do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description, rows: 6, cols: 40 %>
-  </div>
-  <div>
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div>
-    <%= form.label :start_date %>
-    <%= form.date_field :start_date,
-        value: Date.parse(1.week.from_now.strftime('%a, %d %B %Y')) %>
-  </div>
-  <div>
-    <%= form.label :start_time %>
-    <%= form.time_field :start_time, value: '12:00' %>
-  </div>
-
-  <div>
-    <%= form.label :end_date %>
-    <%= form.date_field :end_date,
-        value: Date.parse(1.week.from_now.strftime('%a, %d %B %Y')) %>
-  </div>
-  <div>
-    <%= form.label :end_time %>
-    <%= form.time_field :end_time, value: '23:00' %>
-  </div>
-
-  <div id="privacy-container">
-    <p>Privacy</p>
-    <p>Private events are only visibile to invited guests!<p>
-    <%= form.radio_button :private, false, checked: true %>
-    <%= form.label :private_false, 'Public' %>
-    <%= form.radio_button :private, true %>
-    <%= form.label :private_true, "Private" %>
-  </div>
-
-  <div id="invited-users-container">
-    <p>Invited Users</p>
-    <% User.all.each do |user| %>
-      <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
-      <%= label_tag "updated_invited_users_user_#{user.id}", user.username %>
-    <% end %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= javascript_pack_tag 'event_new.js' %>
+  <%= javascript_pack_tag 'event_new.js' %>
+</section>
