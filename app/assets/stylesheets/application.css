@@ -69,7 +69,8 @@ body > header {
   width: 100%;
 }
 
-#events-section header {
+#events-section header,
+#new-event-section header {
   padding-left: 10px;
 }
 
