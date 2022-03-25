@@ -178,7 +178,9 @@ form input[type="time"] {
   flex-direction: row;
 }
 
-.checkbox-and-label input {
+form input[type="radio"],
+form input[type="checkbox"] {
+  height: 20px;
   width: 20px;
 }
 
