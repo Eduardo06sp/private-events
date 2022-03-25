@@ -59,8 +59,10 @@
     <div id="invited-users-container">
       <p>Invited Users</p>
       <% User.all.each do |user| %>
-        <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
-        <%= label_tag "updated_invited_users_user_#{user.id}", user.username %>
+        <div class="checkbox-and-label">
+          <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
+          <%= label_tag "updated_invited_users_user_#{user.id}", user.username %>
+        </div>
       <% end %>
     </div>
     <div>
