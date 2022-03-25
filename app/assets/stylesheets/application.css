@@ -115,6 +115,73 @@ body > header {
 
 /* FORMS */
 
+#new-event-section {
+  line-height: 1.4em;
+}
+
+#validation-errors {
+  margin: 0 auto;
+  max-width: 75vw;
+}
+
+#validation-errors h3 {
+  text-align: center;
+}
+
+#validation-errors ul {
+  list-style-type: square;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 14px;
+  row-gap: 20px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+form input,
+form textarea {
+  font-size: 0.9em;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+  width: 250px;
+}
+
+form textarea {
+  height: 200px;
+}
+
+form input[type="date"],
+form input[type="time"] {
+  width: 140px;
+}
+
+.checkbox-and-label {
+  column-gap: 3px;
+  flex-direction: row;
+}
+
+.checkbox-and-label input {
+  width: 20px;
+}
+
+form input[type="submit"] {
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  max-width: 130px;
+  padding: 5px;
+}
+
 /* FOOTER */
 
 footer {
