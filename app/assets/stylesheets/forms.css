@@ -68,3 +68,7 @@ form input[type="submit"] {
 }
 
 /* NEW EVENT */
+
+#new-event-section {
+  align-items: unset;
+}
