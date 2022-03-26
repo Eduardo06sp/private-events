@@ -1,39 +1,41 @@
-<h2>Events Created</h2>
-<ul>
-  <% @user.created_events.each do |event| %>
-    <% if event.private %>
-      <% next unless user_signed_in? %>
-      <% next unless (event.private && event.invited_users.include?(current_user.id.to_s)) ||
-        event.creator_id == current_user.id %>
+<section id="user-profile-section">
+  <h2>Events Created</h2>
+  <ul>
+    <% @user.created_events.each do |event| %>
+      <% if event.private %>
+        <% next unless user_signed_in? %>
+        <% next unless (event.private && event.invited_users.include?(current_user.id.to_s)) ||
+          event.creator_id == current_user.id %>
+      <% end %>
+
+      <li><%= event.name %></li>
     <% end %>
+  </ul>
 
-    <li><%= event.name %></li>
-  <% end %>
-</ul>
+  <h2>Event Attendings</h2>
+  <h3>Upcoming</h3>
+  <ul>
+    <% @user.attended_events.upcoming.each do |event| %>
+      <% if event.private %>
+        <% next unless user_signed_in? %>
+        <% next unless (event.private && event.invited_users.include?(current_user.id.to_s)) ||
+          event.creator_id == current_user.id %>
+      <% end %>
 
-<h2>Event Attendings</h2>
-<h3>Upcoming</h3>
-<ul>
-  <% @user.attended_events.upcoming.each do |event| %>
-    <% if event.private %>
-      <% next unless user_signed_in? %>
-      <% next unless (event.private && event.invited_users.include?(current_user.id.to_s)) ||
-        event.creator_id == current_user.id %>
+      <li><%= event.name %></li>
     <% end %>
+  </ul>
 
-    <li><%= event.name %></li>
-  <% end %>
-</ul>
+  <h3>Past</h3>
+  <ul>
+    <% @user.attended_events.past.each do |event| %>
+      <% if event.private %>
+        <% next unless user_signed_in? %>
+        <% next unless (event.private && event.invited_users.include?(current_user.id.to_s)) ||
+          event.creator_id == current_user.id %>
+      <% end %>
 
-<h3>Past</h3>
-<ul>
-  <% @user.attended_events.past.each do |event| %>
-    <% if event.private %>
-      <% next unless user_signed_in? %>
-      <% next unless (event.private && event.invited_users.include?(current_user.id.to_s)) ||
-        event.creator_id == current_user.id %>
+      <li><%= event.name %></li>
     <% end %>
-
-    <li><%= event.name %></li>
-  <% end %>
-</ul>
+  </ul>
+</section>
