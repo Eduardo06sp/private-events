@@ -1,42 +1,42 @@
 <article class="event-expanded event">
-    <h2><%= @event.name %></h2>
-    <p><%= @event.location %></p>
-    <p><%= @event.description %></p>
+  <h2><%= @event.name %></h2>
+  <p><%= @event.location %></p>
+  <p><%= @event.description %></p>
 
-    <p>Begins:
-      <%= Time.zone.parse(@event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
-    </p>
-    <p>Ends:
-      <%= Time.zone.parse(@event.end_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
-    </p>
+  <p>Begins:
+  <%= Time.zone.parse(@event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
+  </p>
+  <p>Ends:
+  <%= Time.zone.parse(@event.end_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
+  </p>
 
-    <% if @event.attendees.any? %>
-      <p>Attendees</p>
-      <% @event.attendees.each do |attendee| %>
-        <p><%= attendee.username %></p>
-      <% end %>
+  <% if @event.attendees.any? %>
+    <p>Attendees</p>
+    <% @event.attendees.each do |attendee| %>
+      <p><%= attendee.username %></p>
     <% end %>
+  <% end %>
 
-    <% if @event.invited_users.any? %>
-      <p>Invited</p>
-      <% @event.invited_users.each do |user_id| %>
-        <p><%= User.find(user_id).username %></p>
-      <% end %>
+  <% if @event.invited_users.any? %>
+    <p>Invited</p>
+    <% @event.invited_users.each do |user_id| %>
+      <p><%= User.find(user_id).username %></p>
     <% end %>
+  <% end %>
 
-    <% if user_signed_in? %>
-      <% if @event.attendees.exists?(current_user.id) %>
-        <%= button_to 'Leave Event', event_attending_path,
-          params: { event_id: @event.id }, method: :delete %>
-      <% else %>
-        <%= button_to 'Join Event', event_attendings_path, params: { event_id: @event.id } %>
-      <% end %>
+  <% if user_signed_in? %>
+    <% if @event.attendees.exists?(current_user.id) %>
+      <%= button_to 'Leave Event', event_attending_path,
+        params: { event_id: @event.id }, method: :delete %>
+    <% else %>
+      <%= button_to 'Join Event', event_attendings_path, params: { event_id: @event.id } %>
     <% end %>
+  <% end %>
 
-    <div class="event-actions">
-      <% if user_signed_in? && @event.creator_id == current_user.id %>
-        <%= link_to "Edit", edit_event_path(@event.id) %>
-        <%= link_to "Delete", event_path(@event.id), method: :delete %>
-      <% end %>
-    </div>
+  <div class="event-actions">
+    <% if user_signed_in? && @event.creator_id == current_user.id %>
+      <%= link_to "Edit", edit_event_path(@event.id) %>
+      <%= link_to "Delete", event_path(@event.id), method: :delete %>
+    <% end %>
+  </div>
 </article>
