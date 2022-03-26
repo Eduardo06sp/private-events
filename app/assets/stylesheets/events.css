@@ -1,0 +1,36 @@
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  line-height: 1.9em;
+  padding: 15px 10px 0;
+  width: 260px;
+}
+
+.event-details {
+  flex: 1;
+}
+
+.event-name {
+  font-size: 1.6em;
+  text-align: center;
+}
+
+.event-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.event-actions {
+  display: flex;
+  justify-content: center;
+}
