@@ -36,3 +36,8 @@
 }
 
 /* EVENT PAGE */
+
+.event-expanded {
+  height: auto;
+  margin: 0 auto;
+}
