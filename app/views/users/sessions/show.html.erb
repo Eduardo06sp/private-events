@@ -1,4 +1,7 @@
 <section id="user-profile-section">
+  <h2 id="username"><%= @user.username %></h2>
+  <p>Email: <%= @user.email %></p>
+  <p>Time zone: <%= @user.time_zone %></p>
 
   <% if @user.created_events.any? %>
     <h2>Events Created</h2>
