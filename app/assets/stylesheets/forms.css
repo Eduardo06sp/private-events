@@ -29,7 +29,8 @@ form div {
 }
 
 form input,
-form textarea {
+form textarea,
+form select {
   font-size: 0.9em;
 }
 
