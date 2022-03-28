@@ -1,0 +1,19 @@
+#user-profile-section {
+  line-height: 1.6em;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 0 25px;
+}
+
+#user-profile-section h2,
+#user-profile-section h3 {
+  text-align: center;
+}
+
+#user-profile-section ul {
+  list-style-type: disclosure-closed;
+}
+
+#user-profile-section #username {
+  text-align: left;
+}
