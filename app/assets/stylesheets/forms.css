@@ -74,3 +74,7 @@ form input[type="submit"] {
 }
 
 /* NEW SESSION */
+
+#new-session-section .checkbox-and-label label {
+  padding-top: 2px;
+}
