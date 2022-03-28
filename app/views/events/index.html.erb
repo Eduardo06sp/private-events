@@ -21,7 +21,7 @@
           <p class="event-name"><%= event.name %></p>
           <p class="event-start-time">
           <%= Time.zone.parse(event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
-          </p>
+          (<%= Time.current.zone %>)</p>
 
           <p class="event-location"><%= event.location %></p>
           <p class="event-description"><%= event.description %></p>
