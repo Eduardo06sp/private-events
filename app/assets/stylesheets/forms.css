@@ -49,6 +49,10 @@ form input[type="time"] {
   width: 140px;
 }
 
+#invited-users-container {
+  line-height: 1.5em;
+}
+
 .checkbox-and-label {
   column-gap: 3px;
   flex-direction: row;
