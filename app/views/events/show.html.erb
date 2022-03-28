@@ -15,7 +15,7 @@
   <% if @event.attendees.any? %>
     <p>Attendees</p>
     <% @event.attendees.each do |attendee| %>
-      <p><%= attendee.username %></p>
+      <p><%= link_to attendee.username, user_path(attendee.id) %></p>
     <% end %>
   <% end %>
 
