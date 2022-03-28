@@ -7,10 +7,10 @@
 
   <p>Begins:
   <%= Time.zone.parse(@event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
-  </p>
+  (<%= Time.current.zone %>)</p>
   <p>Ends:
   <%= Time.zone.parse(@event.end_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
-  </p>
+  (<%= Time.current.zone %>)</p>
 
   <% if @event.attendees.any? %>
     <p>Attendees</p>
