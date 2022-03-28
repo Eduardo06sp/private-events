@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   devise_scope :user do
-    get '/users/:id' => 'users/sessions#show'
+    get '/users/:id' => 'users/sessions#show', as: 'user'
     get '/users/sign_in' => 'users/sessions#create'
     post '/users/sign_out' => 'users/sessions#destroy'
   end
