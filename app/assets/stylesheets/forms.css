@@ -80,6 +80,10 @@ form input[type="submit"] {
 
 /* EDIT EVENT */
 
+#edit-event-section form {
+  align-items: unset;
+}
+
 /* NEW SESSION */
 
 #new-session-section .checkbox-and-label label {
