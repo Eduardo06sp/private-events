@@ -52,13 +52,17 @@
       <p>Invited Users</p>
       <% User.all.each do |user| %>
         <%# if user is part of invited array, then check it, else render it normally %>
-        <% if @event.invited_users.include?(user.id.to_s) %>
-          <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id, checked: true %>
-        <% else %>
-          <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
-        <% end %>
 
-        <%= label_tag "updated_invited_users_user_#{user.id}", user.username %>
+        <div class="checkbox-and-label">
+          <% if @event.invited_users.include?(user.id.to_s) %>
+            <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id, checked: true %>
+          <% else %>
+            <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
+          <% end %>
+
+          <%= label_tag "updated_invited_users_user_#{user.id}", user.username %>
+        </div>
+
       <% end %>
     </div>
   <% end %>
