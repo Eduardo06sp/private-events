@@ -15,7 +15,7 @@
             event.creator_id == current_user.id %>
         <% end %>
 
-        <li><%= event.name %></li>
+        <li><%= link_to event.name, event_path(event.id) %></li>
       <% end %>
     </ul>
   <% end %>
@@ -33,7 +33,7 @@
               event.creator_id == current_user.id %>
           <% end %>
 
-          <li><%= event.name %></li>
+          <li><%= link_to event.name, event_path(event.id) %></li>
         <% end %>
       </ul>
     <% end %>
@@ -48,7 +48,7 @@
               event.creator_id == current_user.id %>
           <% end %>
 
-          <li><%= event.name %></li>
+          <li><%= link_to event.name, event_path(event.id) %></li>
         <% end %>
       </ul>
     <% end %>
