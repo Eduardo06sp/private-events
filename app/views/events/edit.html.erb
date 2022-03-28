@@ -1,78 +1,80 @@
 <% content_for :title, "Edit #{@event.name}" %>
 
-<h2>Edit Event</h2>
+<section id="edit-event-section">
+  <h2>Edit Event</h2>
 
-<% if @event.errors.any? %>
-  <div id="validation-errors">
-    <h2>Form <%= 'Error'.pluralize(@event.errors.count) %></h2>
-    <ul>
-      <% @event.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_with model: @event do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-  <div>
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div>
-    <%= form.label :start_date %>
-    <%= form.date_field :start_date,
-        value: Date.parse(@event.start_date) %>
-  </div>
-  <div>
-    <%= form.label :start_time %>
-    <%= form.time_field :start_time,
-        value: Time.parse(@event.start_time).strftime('%H:%M') %>
-  </div>
-
-  <div>
-    <%= form.label :end_date %>
-    <%= form.date_field :end_date,
-        value: Date.parse(@event.end_date) %>
-  </div>
-  <div>
-    <%= form.label :end_time %>
-    <%= form.time_field :end_time,
-        value: Time.parse(@event.end_time).strftime('%H:%M') %>
-  </div>
-
-  <% if @event.private %>
-    <div>
-
-      <div id="invited-users-container">
-        <p>Invited Users</p>
-        <% User.all.each do |user| %>
-          <%# if user is part of invited array, then check it, else render it normally %>
-
-          <div class="checkbox-and-label">
-            <% if @event.invited_users.include?(user.id.to_s) %>
-              <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id, checked: true %>
-            <% else %>
-              <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
-            <% end %>
-
-            <%= label_tag "updated_invited_users_user_#{user.id}", user.username %>
-          </div>
-
+  <% if @event.errors.any? %>
+    <div id="validation-errors">
+      <h2>Form <%= 'Error'.pluralize(@event.errors.count) %></h2>
+      <ul>
+        <% @event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
         <% end %>
-      </div>
-
+      </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+
+  <%= form_with model: @event do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :description %>
+      <%= form.text_field :description %>
+    </div>
+    <div>
+      <%= form.label :location %>
+      <%= form.text_field :location %>
+    </div>
+
+    <div>
+      <%= form.label :start_date %>
+      <%= form.date_field :start_date,
+        value: Date.parse(@event.start_date) %>
+    </div>
+    <div>
+      <%= form.label :start_time %>
+      <%= form.time_field :start_time,
+        value: Time.parse(@event.start_time).strftime('%H:%M') %>
+    </div>
+
+    <div>
+      <%= form.label :end_date %>
+      <%= form.date_field :end_date,
+        value: Date.parse(@event.end_date) %>
+    </div>
+    <div>
+      <%= form.label :end_time %>
+      <%= form.time_field :end_time,
+        value: Time.parse(@event.end_time).strftime('%H:%M') %>
+    </div>
+
+    <% if @event.private %>
+      <div>
+
+        <div id="invited-users-container">
+          <p>Invited Users</p>
+          <% User.all.each do |user| %>
+            <%# if user is part of invited array, then check it, else render it normally %>
+
+            <div class="checkbox-and-label">
+              <% if @event.invited_users.include?(user.id.to_s) %>
+                <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id, checked: true %>
+              <% else %>
+                <%= check_box_tag "updated_invited_users[user_#{user.id}]", user.id %>
+              <% end %>
+
+              <%= label_tag "updated_invited_users_user_#{user.id}", user.username %>
+            </div>
+
+          <% end %>
+        </div>
+
+      </div>
+    <% end %>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</section>
