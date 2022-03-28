@@ -78,7 +78,8 @@ body > header {
 }
 
 #events-section header,
-#new-event-section header {
+#new-event-section header,
+#new-session-section header {
   padding-left: 10px;
 }
 
