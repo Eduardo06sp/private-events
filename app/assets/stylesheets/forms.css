@@ -91,3 +91,8 @@ form input[type="submit"] {
 }
 
 /* NEW REGISTRATION */
+
+.time-zone-field {
+  line-height: 1.5em;
+  width: 250px;
+}
