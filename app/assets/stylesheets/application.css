@@ -85,6 +85,14 @@ body > header {
   padding-left: 10px;
 }
 
+#new-event-section,
+#new-session-section,
+#new-registration-section,
+#edit-event-section {
+  margin: 0 auto;
+  max-width: 515px;
+}
+
 /* FOOTER */
 
 footer {
