@@ -93,6 +93,11 @@ body > header {
   max-width: 515px;
 }
 
+#events-section {
+  margin: 0 auto;
+  max-width: 0 auto;
+}
+
 /* FOOTER */
 
 footer {
