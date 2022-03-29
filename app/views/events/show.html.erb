@@ -39,7 +39,8 @@
   <div class="event-actions">
     <% if user_signed_in? && @event.creator_id == current_user.id %>
       <%= link_to "Edit", edit_event_path(@event.id) %>
-      <%= link_to "Delete", event_path(@event.id), method: :delete %>
+      <%= link_to "Delete", event_path(@event.id), method: :delete,
+        data: { confirm: 'Are you sure you want to delete this event?' } %>
     <% end %>
   </div>
 </article>
