@@ -29,7 +29,8 @@
   <% if user_signed_in? %>
     <% if @event.attendees.exists?(current_user.id) %>
       <%= button_to 'Leave Event', event_attending_path,
-        params: { event_id: @event.id }, method: :delete %>
+        params: { event_id: @event.id }, method: :delete,
+        data: { confirm: 'Are you sure you want to leave this event?' } %>
     <% else %>
       <%= button_to 'Join Event', event_attendings_path, params: { event_id: @event.id } %>
     <% end %>
