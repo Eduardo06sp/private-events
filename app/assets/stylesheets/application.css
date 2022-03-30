@@ -114,6 +114,9 @@ body > section:nth-of-type(2) {
 /* FOOTER */
 
 footer {
-  margin-top: 10px;
+  display: flex;
+  height: 38px;
+  justify-content: center;
+  margin-top: 3px;
   text-align: center;
 }
