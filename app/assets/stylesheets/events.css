@@ -1,7 +1,7 @@
 .events-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 90px;
   justify-content: center;
   margin: 10px 0;
 }
