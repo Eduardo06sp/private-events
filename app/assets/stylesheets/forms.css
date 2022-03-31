@@ -37,10 +37,12 @@ form select {
 form input[type="email"],
 form input[type="password"],
 form input[type="text"] {
+  padding-left: 2px;
   width: 250px;
 }
 
 form textarea {
+  padding-left: 2px;
   height: 200px;
 }
 
