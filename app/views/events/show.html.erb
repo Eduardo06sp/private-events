@@ -15,14 +15,14 @@
   <% if @event.attendees.any? %>
     <p>Attendees</p>
     <% @event.attendees.each do |attendee| %>
-      <p><%= link_to attendee.username, user_path(attendee.id) %></p>
+      <p><%= link_to attendee.username, user_path(attendee.id), class: 'link' %></p>
     <% end %>
   <% end %>
 
   <% if @event.invited_users.any? %>
     <p>Invited</p>
     <% @event.invited_users.each do |user_id| %>
-      <p><%= User.find(user_id).username %></p>
+      <p><%= link_to User.find(user_id).username, user_path(user_id), class: 'link' %></p>
     <% end %>
   <% end %>
 
