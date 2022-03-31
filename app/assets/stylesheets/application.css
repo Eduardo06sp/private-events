@@ -59,6 +59,9 @@ a {
 .button {
   background-color: #33658a;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  max-width: 110px;
 }
 
 .button a {
