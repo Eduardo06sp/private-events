@@ -3,7 +3,10 @@
 <article class="event-expanded event">
   <h2>Name: <%= @event.name %></h2>
   <p>Location: <%= @event.location %></p>
-  <p>Description: <%= @event.description %></p>
+
+  <% unless @event.description.empty? %>
+    <p>Description: <%= @event.description %></p>
+  <% end %>
 
   <p>Begins:
   <%= Time.zone.parse(@event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
