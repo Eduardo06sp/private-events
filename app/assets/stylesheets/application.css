@@ -70,6 +70,10 @@ a {
   text-decoration: none;
 }
 
+.destructive-action {
+  background-color: #522b47;
+}
+
 .link {
   color: unset;
   text-decoration: underline;
