@@ -1,29 +1,29 @@
 <% content_for :title, @event.name %>
 
 <article class="event-expanded event">
-  <h2>Name: <%= @event.name %></h2>
-  <p>Location: <%= @event.location %></p>
+  <h2><b>Name:</b> <%= @event.name %></h2>
+  <p><b>Location:</b> <%= @event.location %></p>
 
   <% unless @event.description.empty? %>
-    <p>Description: <%= @event.description %></p>
+    <p><b>Description:</b> <%= @event.description %></p>
   <% end %>
 
-  <p>Begins:
+  <p><b>Begins:</b>
   <%= Time.zone.parse(@event.start_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
   (<%= Time.current.zone %>)</p>
-  <p>Ends:
+  <p><b>Ends:</b>
   <%= Time.zone.parse(@event.end_timewithzone).strftime('%a, %b %d, %I:%M%p') %>
   (<%= Time.current.zone %>)</p>
 
   <% if @event.attendees.any? %>
-    <p>Attendees</p>
+    <p><b>Attendees</b></p>
     <% @event.attendees.each do |attendee| %>
       <p><%= link_to attendee.username, user_path(attendee.id), class: 'link' %></p>
     <% end %>
   <% end %>
 
   <% if @event.invited_users.any? %>
-    <p>Invited</p>
+    <p><b>Invited</b></p>
     <% @event.invited_users.each do |user_id| %>
       <p><%= link_to User.find(user_id).username, user_path(user_id), class: 'link' %></p>
     <% end %>
