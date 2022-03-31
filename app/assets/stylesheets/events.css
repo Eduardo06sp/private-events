@@ -37,6 +37,10 @@
   justify-content: center;
 }
 
+.event-actions .button a {
+  padding: 6px 15px;
+}
+
 /* EVENT PAGE */
 
 .event-expanded {
