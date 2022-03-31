@@ -52,16 +52,23 @@ body {
   font-size: 1.1rem;
 }
 
-a {
-  background-color: #33658a;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
+a, 
+.button {
+  height: 45px;
   padding: 8px;
 }
 
+.button {
+  background-color: #33658a;
+  border-radius: 5px;
+}
+
+.button a {
+  color: white;
+  text-decoration: none;
+}
+
 .link {
-  background-color: unset;
   color: unset;
   text-decoration: underline;
 }
