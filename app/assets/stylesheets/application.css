@@ -86,6 +86,10 @@ body > header {
   width: 100%;
 }
 
+#logo-text-light {
+  color: #686c6c;
+}
+
 body > section:nth-of-type(2) {
   flex-grow: 1;
 }
