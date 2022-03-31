@@ -66,6 +66,7 @@ a {
 
 .button a {
   color: white;
+  padding: 12px;
   text-decoration: none;
 }
 
