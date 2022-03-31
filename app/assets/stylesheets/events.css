@@ -8,6 +8,8 @@
 
 .event {
   background-color: #607d63;
+  border-radius: 5px;
+  box-shadow: 14px 14px 23px #686c6c;
   color: white;
   display: flex;
   flex-direction: column;
