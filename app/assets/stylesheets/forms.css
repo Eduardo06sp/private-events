@@ -71,7 +71,7 @@ form input[type="submit"] {
   color: white;
   height: 45px;
   max-width: 130px;
-  padding: 5px;
+  padding: 5px 15px;
 }
 
 /* NEW EVENT */
