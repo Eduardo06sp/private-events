@@ -48,3 +48,7 @@
   height: auto;
   margin: 0 auto;
 }
+
+.event-expanded .event-actions {
+  margin-top: 10px;
+}
