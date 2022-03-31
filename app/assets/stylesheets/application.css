@@ -60,6 +60,12 @@ a {
   padding: 8px;
 }
 
+.link {
+  background-color: unset;
+  color: unset;
+  text-decoration: underline;
+}
+
 a:active, a:hover {
   text-decoration: underline;
 }
