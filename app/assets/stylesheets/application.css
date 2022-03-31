@@ -32,6 +32,7 @@ html {
 }
 
 body {
+  background-color: #e8f1f2;
   display: flex;
   flex-direction: column;
 }
@@ -52,6 +53,9 @@ body {
 }
 
 a {
+  background-color: #33658a;
+  border-radius: 5px;
+  color: white;
   text-decoration: none;
   padding: 8px;
 }

@@ -65,8 +65,10 @@ form input[type="checkbox"] {
 }
 
 form input[type="submit"] {
+  background-color: #33658a;
   border: none;
   border-radius: 5px;
+  color: white;
   height: 30px;
   max-width: 130px;
   padding: 5px;
