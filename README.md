@@ -7,6 +7,8 @@
 
 A mobile-friendly website where registered users may create private or public events, and mark events they are attending.
 
+[Click here to view a live version in Heroku.](https://privat3-3v3nts.herokuapp.com/)
+
 ## General Information
 Private Events is the place to host your next event! Users may host or attend events. Events may be public or private, and only invited users may access or attend private events. Anyone may access or attend public events.
 
@@ -16,6 +18,8 @@ Events may be viewed, edited or deleted, depending on permissions the user has.
 This project was created in Rails, with Devise for user authentication.
 
 ## Installing / Getting Started
+[Click here to view a live version in Heroku.](https://privat3-3v3nts.herokuapp.com/)
+
 > Prerequisites:
 > * Ruby >= 3.0.3
 > * Rails >= 6.1.4.6
