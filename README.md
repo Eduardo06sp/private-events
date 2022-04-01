@@ -1,4 +1,5 @@
 # Private Events
+![A screenshot displaying the website with pre-filled events](https://i.postimg.cc/SkLRwz7w/private-events-screenshot.png)
 
 > **Note:** Due to Heroku's aggresive sleep configuration for web dynos, initial load time may be longer than expected.
 >
