@@ -5,7 +5,7 @@
 >
 > **Warning:** Due to the nature of public, anonymous submissions, they may contain explicit or inappropriate content. You may report any content using any method of contact listed at the end of this README.
 
-A mobile-friendly website where registered users may create private or public events, and mark events they are attending.
+A mobile-friendly website where registered users may create private or public events and mark events they are attending.
 
 [Click here to view a live version in Heroku.](https://privat3-3v3nts.herokuapp.com/)
 
