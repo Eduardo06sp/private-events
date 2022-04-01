@@ -9,6 +9,10 @@ A mobile-friendly website where registered users may create private or public ev
 
 [Click here to view a live version in Heroku.](https://privat3-3v3nts.herokuapp.com/)
 
+You may use the test account credentials to log in:<br>
+Username: `Test`<br>
+Password: `123456`
+
 ## General Information
 Private Events is the place to host your next event! Users may host or attend events. Events may be public or private, and only invited users may access or attend private events. Anyone may access or attend public events.
 
@@ -19,6 +23,10 @@ This project was created in Rails, with Devise for user authentication.
 
 ## Installing / Getting Started
 [Click here to view a live version in Heroku.](https://privat3-3v3nts.herokuapp.com/)
+
+You may use the test account credentials to log in:<br>
+Username: `Test`<br>
+Password: `123456`
 
 > Prerequisites:
 > * Ruby >= 3.0.3
